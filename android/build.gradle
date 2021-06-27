@@ -18,6 +18,9 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 
@@ -43,5 +46,6 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.google.code.gson:gson:2.8.5"
-    implementation fileTree(dir: 'amazon-chime-sdk', include: ['amazon-chime-sdk-combined-without-libc++_shared.so.aar'])
+    implementation(name: 'amazon-chime-sdk', ext: 'aar')
+    implementation(name: 'amazon-chime-sdk-media', ext: 'aar')
 }
